@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uplift Community Church | Growing Together in Faith</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #f4a261;
+            --accent: #2a9d8f;
+            --royal: #9b59b6;
+            --grace: #3498db;
+            --teshuvah: #e74c3c;
+            --judah: #e67e22;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --white: #ffffff;
+            --gray: #7f8c8d;
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(244, 162, 97, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #e76f51;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(244, 162, 97, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(44, 62, 80, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?ixlib=rb-4.0.3') center/cover no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            color: var(--light);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 {
+            font-family: var(--font-secondary);
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        /* Time Display */
+        .time-display {
+            background: rgba(0, 0, 0, 0.25);
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: var(--font-secondary);
+            font-size: 2.8rem;
+            color: var(--light);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 30px auto 0;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+        }
+        
+        /* Group Portals Section */
+        .portals {
+            padding: 120px 0;
+        }
+        
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .portal-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.01));
+            z-index: -1;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-15px) scale(1.03);
+        }
+        
+        .portal-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .portal-judah .portal-icon {
+            background: linear-gradient(135deg, var(--judah), #d35400);
+        }
+        
+        .portal-teshuvah .portal-icon {
+            background: linear-gradient(135deg, var(--teshuvah), #c0392b);
+        }
+        
+        .portal-grace .portal-icon {
+            background: linear-gradient(135deg, var(--grace), #2980b9);
+        }
+        
+        .portal-royalty .portal-icon {
+            background: linear-gradient(135deg, var(--royal), #8e44ad);
+        }
+        
+        .portal-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .portal-card p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .portal-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .portal-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            color: var(--light);
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .timeline {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-year {
+            min-width: 80px;
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .timeline-content {
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .timeline-content h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+        
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Ministries Section */
+        .ministries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .ministry-card {
+            padding: 30px;
+            border-radius: 20px;
+        }
+        
+        .ministry-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .ministry-card p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        /* Calendar Section */
+        .calendar-container {
+            padding: 40px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .calendar-header h3 {
+            font-size: 1.8rem;
+            color: var(--light);
+        }
+        
+        .month-filter {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .month-btn {
+            padding: 10px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--light);
+            font-weight: 500;
+        }
+        
+        .month-btn.active, .month-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .calendar-month {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 25px;
+        }
+        
+        .calendar-month h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--light);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            font-size: 1.5rem;
+        }
+        
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .day-name {
+            text-align: center;
+            font-weight: 600;
+            color: var(--light);
+            font-size: 0.95rem;
+            padding: 5px;
+        }
+        
+        .calendar-dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+        
+        .date-cell {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .date-cell:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .date-cell.empty {
+            background: transparent;
+        }
+        
+        .date-cell.today {
+            background: var(--secondary);
+            color: var(--dark);
+            font-weight: 700;
+            transform: scale(1.1);
+        }
+        
+        .date-cell.has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .calendar-events {
+            margin-top: 25px;
+        }
+        
+        .event-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .event-date {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .event-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+        
+        .event-time {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(25, 35, 45, 0.95);
+            padding: 80px 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 8px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+        
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 1rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: rgba(44, 62, 80, 0.95);
+                width: 100%;
+                padding: 30px 0;
+                backdrop-filter: blur(10px);
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .calendar-header {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .month-filter {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .calendar-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portal-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-text">UpliftCommunity</div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#groups">Groups</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ministries">Ministries</a></li>
+                    <li><a href="#calendar">Calendar</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Growing Together in Faith, Hope & Love</h1>
+                <p>Welcome to Uplift Community Church, where we come together to worship, serve, and grow in our relationship with Christ and each other.</p>
+                <div class="hero-btns">
+                    <a href="#groups" class="btn">Join Our Groups</a>
+                    <a href="#calendar" class="btn btn-outline">View Events</a>
+                </div>
+                <div class="time-display">
+                    <i class="fas fa-clock"></i> Current Time in Nairobi: <span id="nairobi-time">00:00:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Group Portals Section -->
+    <section id="groups" class="portals">
+        <div class="container">
+            <div class="section-header">
+                <h2>Community Groups</h2>
+                <p>Join one of our vibrant groups to connect, grow, and serve together.</p>
+            </div>
+            <div class="portals-grid">
+                <div class="portal-card portal-judah">
+                    <div class="portal-icon">
+                        <i class="fas fa-lion"></i>
+                    </div>
+                    <h3>Tribe of Judah</h3>
+                    <p>A community of warriors and leaders, rooted in strength and faith. We focus on spiritual growth and leadership development.</p>
+                    <a href="#" class="portal-btn">Join Discussion</a>
+                </div>
+                
+                <div class="portal-card portal-teshuvah">
+                    <div class="portal-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <h3>Teshuvah</h3>
+                    <p>A group dedicated to repentance, renewal, and returning to God. We explore spiritual disciplines and transformation.</p>
+                    <a href="#" class="portal-btn">Join Discussion</a>
+                </div>
+                
+                <div class="portal-card portal-grace">
+                    <div class="portal-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h3>Grace</h3>
+                    <p>Embracing God's unmerited favor. We study the depths of grace and extend compassion to our community.</p>
+                    <a href="#" class="portal-btn">Join Discussion</a>
+                </div>
+                
+                <div class="portal-card portal-royalty">
+                    <div class="portal-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>Royalty</h3>
+                    <p>Understanding our identity as children of the King. We focus on living out our royal inheritance in Christ.</p>
+                    <a href="#" class="portal-btn">Join Discussion</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Our Church</h2>
+                <p>Discover our mission, vision, and the values that guide our community.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Welcome to Uplift Community Church</h3>
+                    <p>Founded in 2024, Uplift Community Church is a vibrant new faith community in Nairobi. We are a diverse group united by our love for Christ and commitment to serving others.</p>
+                    <p>Our mission is to uplift individuals and communities through the transformative power of the Gospel, fostering spiritual growth, and making a positive impact in our society.</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-content">
+                                <h4>Church Founding</h4>
+                                <p>Uplift Community Church officially launched in Nairobi with our first service.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-content">
+                                <h4>Community Outreach</h4>
+                                <p>Launched our first neighborhood outreach program serving 200 families.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-content">
+                                <h4>Group Ministries</h4>
+                                <p>Established our four pillar groups: Tribe of Judah, Teshuvah, Grace, and Royalty.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn">Our Beliefs</a>
+                </div>
+                <div class="about-image glass-card">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Church Community Gathering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministries Section -->
+    <section id="ministries" class="ministries">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Ministries</h2>
+                <p>Explore the different ways you can get involved and grow spiritually.</p>
+            </div>
+            <div class="ministries-grid">
+                <div class="glass-card ministry-card">
+                    <h3>Youth Ministry</h3>
+                    <p>Our dynamic youth program for ages 13-18 focuses on building faith, character, and leadership through engaging activities, Bible studies, and community service.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                
+                <div class="glass-card ministry-card">
+                    <h3>Women's Fellowship</h3>
+                    <p>A supportive community where women grow in faith, build meaningful relationships, and empower each other through Bible study, prayer, and fellowship.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                
+                <div class="glass-card ministry-card">
+                    <h3>Community Outreach</h3>
+                    <p>We actively serve our local community through various initiatives including feeding programs, education support, and healthcare services for those in need.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="calendar" class="calendar">
+        <div class="container">
+            <div class="section-header">
+                <h2>Church Calendar</h2>
+                <p>Stay updated with our upcoming events and services.</p>
+            </div>
+            <div class="glass-card calendar-container">
+                <div class="calendar-header">
+                    <h3>Upcoming Events</h3>
+                    <div class="month-filter">
+                        <div class="month-btn active" data-month="current">Current Month</div>
+                        <div class="month-btn" data-month="next">Next Month</div>
+                        <div class="month-btn" data-month="all">All Events</div>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-month" id="current-month-calendar">
+                        <h3>July 2025</h3>
+                        <div class="calendar-days">
+                            <div class="day-name">Sun</div>
+                            <div class="day-name">Mon</div>
+                            <div class="day-name">Tue</div>
+                            <div class="day-name">Wed</div>
+                            <div class="day-name">Thu</div>
+                            <div class="day-name">Fri</div>
+                            <div class="day-name">Sat</div>
+                        </div>
+                        <div class="calendar-dates" id="current-month-dates">
+                            <!-- Generated by JavaScript -->
+                        </div>
+                        <div class="calendar-events">
+                            <div class="event-item">
+                                <div class="event-date">Sunday, July 9</div>
+                                <div class="event-title">Sunday Worship Service</div>
+                                <div class="event-time">9:00 AM - 11:00 AM</div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">Wednesday, July 12</div>
+                                <div class="event-title">Bible Study Night</div>
+                                <div class="event-time">6:30 PM - 8:00 PM</div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">Saturday, July 15</div>
+                                <div class="event-title">Youth Outdoor Adventure</div>
+                                <div class="event-time">8:00 AM - 5:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-month" id="next-month-calendar">
+                        <h3>August 2025</h3>
+                        <div class="calendar-days">
+                            <div class="day-name">Sun</div>
+                            <div class="day-name">Mon</div>
+                            <div class="day-name">Tue</div>
+                            <div class="day-name">Wed</div>
+                            <div class="day-name">Thu</div>
+                            <div class="day-name">Fri</div>
+                            <div class="day-name">Sat</div>
+                        </div>
+                        <div class="calendar-dates" id="next-month-dates">
+                            <!-- Generated by JavaScript -->
+                        </div>
+                        <div class="calendar-events">
+                            <div class="event-item">
+                                <div class="event-date">Sunday, August 6</div>
+                                <div class="event-title">Communion Service</div>
+                                <div class="event-time">9:00 AM - 11:00 AM</div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">Friday, August 11</div>
+                                <div class="event-title">Men's Prayer Breakfast</div>
+                                <div class="event-time">7:00 AM - 9:00 AM</div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">Saturday, August 19</div>
+                                <div class="event-title">Community Outreach Day</div>
+                                <div class="event-time">9:00 AM - 2:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Uplift Community</h3>
+                    <p>A place of worship, fellowship, and spiritual growth. Join us as we journey together in faith.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#groups">Groups</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#ministries">Ministries</a></li>
+                        <li><a href="#calendar">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Community Groups</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tribe of Judah</a></li>
+                        <li><a href="#">Teshuvah</a></li>
+                        <li><a href="#">Grace</a></li>
+                        <li><a href="#">Royalty</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for weekly updates and devotionals.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required style="width: 100%; padding: 12px; border-radius: 8px; border: none; background: rgba(255,255,255,0.1); color: white;">
+                        </div>
+                        <button type="submit" class="btn" style="margin-top: 10px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Uplift Community Church. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after click
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+                
+                // Update active link
+                document.querySelectorAll('nav ul li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Nairobi Time Display
+        function updateNairobiTime() {
+            const options = {
+                timeZone: 'Africa/Nairobi',
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            
+            const nairobiTime = new Date().toLocaleTimeString('en-US', options);
+            document.getElementById('nairobi-time').textContent = nairobiTime;
+        }
+        
+        setInterval(updateNairobiTime, 1000);
+        updateNairobiTime();
+        
+        // Calendar Generation
+        function generateCalendar(monthOffset, containerId) {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + monthOffset;
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            
+            const calendarDates = document.getElementById(containerId);
+            calendarDates.innerHTML = '';
+            
+            // Day of week for first day of month (0 = Sunday, 1 = Monday, etc.)
+            const firstDayOfWeek = firstDay.getDay();
+            
+            // Add empty cells for days before the first day of the month
+            for (let i = 0; i < firstDayOfWeek; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.classList.add('date-cell', 'empty');
+                calendarDates.appendChild(emptyCell);
+            }
+            
+            // Add cells for each day of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateCell = document.createElement('div');
+                dateCell.classList.add('date-cell');
+                dateCell.textContent = day;
+                
+                // Highlight today
+                const today = new Date();
+                if (monthOffset === 0 && day === today.getDate() && 
+                    month === today.getMonth() && year === today.getFullYear()) {
+                    dateCell.classList.add('today');
+                }
+                
+                // Add event indicator on specific days
+                const eventDays = monthOffset === 0 ? [9, 12, 15, 22, 27] : [6, 11, 19, 25, 30];
+                if (eventDays.includes(day)) {
+                    dateCell.classList.add('has-event');
+                }
+                
+                calendarDates.appendChild(dateCell);
+            }
+        }
+        
+        // Generate current and next month calendars
+        generateCalendar(0, 'current-month-dates');
+        generateCalendar(1, 'next-month-dates');
+        
+        // Calendar Filter
+        const monthBtns = document.querySelectorAll('.month-btn');
+        const calendars = document.querySelectorAll('.calendar-month');
+        
+        monthBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                monthBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.dataset.month;
+                
+                if (filter === 'all') {
+                    calendars.forEach(cal => cal.style.display = 'block');
+                } else if (filter === 'current') {
+                    document.getElementById('current-month-calendar').style.display = 'block';
+                    document.getElementById('next-month-calendar').style.display = 'none';
+                } else if (filter === 'next') {
+                    document.getElementById('current-month-calendar').style.display = 'none';
+                    document.getElementById('next-month-calendar').style.display = 'block';
+                }
+            });
+        });
+        
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.2)';
+                header.style.background = 'rgba(25, 35, 45, 0.95)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(44, 62, 80, 0.8)';
+            }
+        });
+        
+        // Portal animations
+        const portalCards = document.querySelectorAll('.portal-card');
+        portalCards.forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
